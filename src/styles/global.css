@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(241 245 249);
+    font-family: 'MyFont';
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: local('MyFont'), url(../../public/font/Inter-VariableFont_opsz\,wght.ttf) format('woff');
+  }
