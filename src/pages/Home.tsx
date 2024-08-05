@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { FunctionComponent } from "../common/types";
 import SearchNav from "../components/SearchNav/SearchNav";
+import StartSearch from "../components/StartSearch/StartSearch";
 import type {
 	RepoData,
 	UserData,
@@ -15,7 +16,7 @@ export const Home = (): FunctionComponent => {
 	const [error, setError] = useState<string | null>(null);
 
 	return (
-		<div>
+		<div className="h-screen">
 			<SearchNav
 				setError={setError}
 				setUserData={setUserData}
@@ -23,6 +24,9 @@ export const Home = (): FunctionComponent => {
 				setUsername={setUsername}
 				username={username}
 			/>
+			{!userData && !error && (
+				<StartSearch title="Start with searching a GitHub user" />
+			)}
 			{userData && <FoundUser userData={userData} userRepo={userRepo} />}
 			{error && <h1>Not Found</h1>}
 		</div>

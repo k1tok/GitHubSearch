@@ -3,4 +3,5 @@ export interface MyImageProps {
 	alt: string;
 	w?: number | string;
 	h?: number | string;
+	css?: string;
 }

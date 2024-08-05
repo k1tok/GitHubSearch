@@ -59,7 +59,7 @@ const SearchNav: React.FC<SearchNavProps> = ({
 			</div>
 			<div>
 				<MyInput
-					placeholder="Поиск"
+					placeholder="Enter GitHub username"
 					value={username}
 					onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 						setUsername(event.target.value);
