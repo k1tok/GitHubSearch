@@ -1,13 +1,15 @@
 import { useState } from "react";
 import type { FunctionComponent } from "../common/types";
+import FoundUser from "../components/FoundUser/FoundUser";
 import SearchNav from "../components/SearchNav/SearchNav";
-import StartSearch from "../components/StartSearch/StartSearch";
 import type {
 	RepoData,
 	UserData,
 } from "../components/SearchNav/SearchNavDataTypes";
-import FoundUser from "../components/FoundUser/FoundUser";
+import StaticPage from "../components/StartSearch/StaticPage";
 import "../styles/global.css";
+import searchIcon from "../assets/icons/searchIconPage.svg";
+import errorIcon from "../assets/icons/errorIcon.svg";
 
 export const Home = (): FunctionComponent => {
 	const [username, setUsername] = useState<string>("");
@@ -25,10 +27,13 @@ export const Home = (): FunctionComponent => {
 				username={username}
 			/>
 			{!userData && !error && (
-				<StartSearch title="Start with searching a GitHub user" />
+				<StaticPage
+					icon={searchIcon}
+					title="Start with searching a GitHub user"
+				/>
 			)}
 			{userData && <FoundUser userData={userData} userRepo={userRepo} />}
-			{error && <h1>Not Found</h1>}
+			{error && <StaticPage icon={errorIcon} title="User not found" />}
 		</div>
 	);
 };
