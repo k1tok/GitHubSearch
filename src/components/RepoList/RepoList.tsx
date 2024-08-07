@@ -14,7 +14,9 @@ const RepoList: React.FC<ReposListProps> = ({ repos }) => {
 							{repo.name}
 						</a>
 					</div>
-					<div>{repo.description ? repo.description : "Empty description"}</div>
+					<div className="w-full truncate">
+						{repo.description ? repo.description : "Empty description"}
+					</div>
 				</div>
 			))}
 		</>
