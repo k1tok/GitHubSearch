@@ -1,0 +1,8 @@
+.myInput{
+    border-radius: 8px;
+    width: 30vw;
+    padding: 6px 35px;
+    margin: 5px 0;
+    background: url(../../../assets/icons/search.svg) no-repeat center left;
+    background-color: white;
+}
