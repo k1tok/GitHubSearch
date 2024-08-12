@@ -6,7 +6,7 @@ import type {
 	RepoData,
 	UserData,
 } from "../components/SearchNav/SearchNavDataTypes";
-import StaticPage from "../components/StartSearch/StaticPage";
+import StaticPage from "../components/StaticPage/StaticPage";
 import "../styles/global.css";
 import searchIcon from "../assets/icons/searchIconPage.svg";
 import errorIcon from "../assets/icons/errorIcon.svg";

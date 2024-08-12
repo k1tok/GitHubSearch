@@ -2,7 +2,8 @@ import axios from "axios";
 import { useCallback, useEffect } from "react";
 import ghLogo from "../../assets/icons/ghLogo.svg";
 import MyInput from "../ui/input/MyInput";
-import type { RepoData, SearchNavProps, UserData } from "./SearchNavDataTypes";
+import { fetchAllRepos } from "../utils/getAllRepos";
+import type { SearchNavProps, UserData } from "./SearchNavDataTypes";
 
 const SearchNav: React.FC<SearchNavProps> = ({
 	username,
@@ -29,10 +30,8 @@ const SearchNav: React.FC<SearchNavProps> = ({
 			setUserData(response.data);
 			setError(null);
 
-			const repoResponse = await axios.get<Array<RepoData>>(
-				`https://api.github.com/users/${username}/repos`
-			);
-			setUserRepo(repoResponse.data);
+			const repoResponse = await fetchAllRepos(username);
+			setUserRepo(repoResponse);
 		} catch {
 			setError("User not found");
 			setUserData(null);

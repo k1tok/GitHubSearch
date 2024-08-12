@@ -1,13 +1,15 @@
-import MyImage from "../ui/image/MyImage";
-import type { FoundUserProps } from "./FoundUserDataTypes";
+import emptyRepo from "../../assets/icons/emptyRepoIcon.svg";
 import followersIcon from "../../assets/icons/followersIcon.svg";
 import followingIcon from "../../assets/icons/followingIcon.svg";
+import HasRepo from "../HasRepo/HasRepo";
+import StaticPage from "../StaticPage/StaticPage";
+import MyImage from "../ui/image/MyImage";
 import UserStats from "../UserStats/UserStats";
-import RepoList from "../RepoList/RepoList";
+import type { FoundUserProps } from "./FoundUserDataTypes";
 
 const FoundUser: React.FC<FoundUserProps> = ({ userData, userRepo }) => {
 	return (
-		<div className="flex gap-x-20 my-10 mx-10">
+		<div className="flex gap-x-20 my-10 mx-10 h-5/6">
 			<div className="flex flex-col gap-3">
 				<div>
 					<MyImage
@@ -38,16 +40,11 @@ const FoundUser: React.FC<FoundUserProps> = ({ userData, userRepo }) => {
 				</div>
 			</div>
 
-			<div className="flex flex-col gap-6">
-				<div className="font-semibold text-3xl">
-					Repositories ({userData.public_repos})
-				</div>
-				<div>
-					<div className="flex flex-col gap-2">
-						<RepoList repos={userRepo} />
-					</div>
-				</div>
-			</div>
+			{userData.public_repos > 0 ? (
+				<HasRepo quantity={userData.public_repos} repos={userRepo} />
+			) : (
+				<StaticPage icon={emptyRepo} title="Repository list is empty" />
+			)}
 		</div>
 	);
 };
