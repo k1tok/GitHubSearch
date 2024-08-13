@@ -12,6 +12,7 @@ const FoundUser: React.FC<FoundUserProps> = ({ userData, userRepo }) => {
 				<div>
 					<MyImage
 						alt={userData.name}
+						css={"rounded-full"}
 						h={260}
 						url={userData.avatar_url}
 						w={260}
